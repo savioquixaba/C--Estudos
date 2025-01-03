@@ -1,9 +1,10 @@
 ﻿
 
 
-
+// o list está recebendo o Tipo aluno, nesse caso a lista pode receber varios objetos do tipo Aluno.
 List<Aluno> alunos = new();
 
+//metodo AddRange() recebe varios objetos da classe aluno e joga tudo de uma vez dentro da lista
 alunos.AddRange(new List<Aluno>
 {
     new Aluno("Maria", 8.75),
@@ -18,9 +19,11 @@ alunos.AddRange(new List<Aluno>
     new Aluno("Sueli", 9.15)
 });
 
-
+//inicializando dois novos alunos
 Aluno aluno1 = new Aluno("Bia", 7.75);
 Aluno aluno2 = new Aluno("Mario", 8.95);
+
+//colocando os novos alunos na lista, sem esse metodo mesmo inicializando e alocando memoria para eles, não apareceriam na lista.
 alunos.Add(aluno1);
 alunos.Add(aluno2);
 
@@ -67,10 +70,12 @@ public class Aluno
     }
     public static void MediaAlunos(List<Aluno>alunos)
     {
+        //variavel local para receber o valor das notas e somar para dar a média no final
         double somaNotas = 0;
 
         for (int i = 0; i < alunos.Count; i++) { 
             somaNotas += alunos[i].Nota;
+            //equivale a somaNotas = somaNotas + alunos[i].Nota;
         }
         double media = somaNotas / alunos.Count;
         Console.WriteLine($"A Média das notas é: {media}");
@@ -84,6 +89,7 @@ public class Aluno
     {
         Console.WriteLine("Digite o nome do Aluno a ser buscado: ");
         string nomeAluno = Console.ReadLine();
+        //metodo find sempre usa funções lambdas ou na maioria dos casos;
         Aluno aluno = alunos.Find(a => a.Nome == nomeAluno);
         if (aluno != null)
         {
@@ -98,6 +104,7 @@ public class Aluno
 
     public static void Ordenar(List<Aluno> alunos)
     {
+        //aqui ele está recebendo dois parametros e comparando o paramentro a com o B e ordenamento no metodo sort(crescente)
         alunos.Sort((a, b) => a.Nome.CompareTo(b.Nome));  
     }
 
