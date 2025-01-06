@@ -29,5 +29,4 @@ for(int i = 0;i < frutas.Length ; i++)
 }
 Console.WriteLine($"o nome da ultima fruta é: {frutas[frutas.Length - 1]}");
 
-
 Console.ReadKey();
